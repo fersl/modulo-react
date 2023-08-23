@@ -6,17 +6,6 @@ function Series() {
 
     const [series, setSeries] = useState([])
 
-    // 1 - CONEXÃO COM FETCH
-    useEffect(() => {
-        fetch(`${URL_SERIES}/popular${API_KEY}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log("retorno do fetch:", data)
-            setSeries(data.results)
-        })
-    }, [])
-
-    // 2 - CONEXÃO COM AXIOS
     useEffect(() => {
         axios.get(`${URL_SERIES}/popular${API_KEY}`)
         .then(res => {
@@ -24,12 +13,22 @@ function Series() {
             setSeries(res.data.results)
         })
     }, [])
-
     console.log("series:", series)
 
     return(
-        <h1>Página de Séries</h1>
-    )
+        <>
+            <h1>Página de Séries</h1>
+            <ul>
+                {series.map( (serie) => {
+                    return(
+                        <li key={serie.id}>
+                            <span>{serie.name}</span>
+                        </li>
+                    )
+                } )}
+            </ul>
+        </>
+        )
 }
 
 export default Series

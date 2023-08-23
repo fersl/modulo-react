@@ -8,19 +8,6 @@ function Filmes() {
 
     // useEffect( função, array de dependências )
     // useEffect( ()=>{}, [] )
-
-    // Use apenas uma das opções abaixo:
-    // 1 - CONEXÃO COM FETCH
-    useEffect(() => {
-        fetch(`${URL_FILMES}/popular${API_KEY}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log("retorno do fetch:", data)
-            setFilmes(data.results)
-        })
-    }, [])
-
-    // 2 - CONEXÃO COM AXIOS
     useEffect(() => {
         axios.get(`${URL_FILMES}/popular${API_KEY}`)
         .then(res => {
@@ -28,11 +15,21 @@ function Filmes() {
             setFilmes(res.data.results)
         })
     }, [])
-
     console.log("filmes:", filmes);
 
     return (
+        <>
         <h1>Página de Filmes</h1>
+        <ul>
+            {filmes.map( (filme) => {
+                return(
+                    <li key={filme.id}>
+                        <span>{filme.title}</span>
+                    </li>
+                )
+            } )}
+        </ul>
+        </>
     )
 }
 
