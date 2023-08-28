@@ -5,6 +5,7 @@ import Series from "./pages/Series/Series";
 import NoPage from "./pages/NoPage";
 import FilmeDetalhes from "./pages/FilmeDetalhes";
 import SerieDetalhes from "./pages/SerieDetalhes";
+import { GlobaLStyle } from "./GlobalStyle";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="series/:idSerie" element={<SerieDetalhes />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
+      <GlobaLStyle />
     </BrowserRouter>
   );
 }
