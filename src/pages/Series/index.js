@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { API_KEY, URL_SERIES } from "../../apiConfig"
-import { useNavigate } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import axios from "axios"
 import Card from "../../components/Card"
 import { StyledListaSeries } from "./style"
+import { UsuarioContext } from "../../App";
 
 
 function Series() {
 
     const [series, setSeries] = useState([])
     const navigate = useNavigate()
+    const username = useContext(UsuarioContext)
 
     useEffect(() => {
         axios.get(`${URL_SERIES}/popular${API_KEY}`)
@@ -26,6 +28,7 @@ function Series() {
 
     return (
         <>
+            <h2>Olá, {username}!</h2>
             <h1>Página de Séries</h1>
             <StyledListaSeries>
                 {series.map((serie) => {
