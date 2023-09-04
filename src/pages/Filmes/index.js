@@ -1,16 +1,14 @@
 import { API_KEY, URL_FILMES } from "../../apiConfig"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import Card from "../../components/Card"
 import { StyledListaFilmes } from "./style"
-import { UsuarioContext } from "../../UsuarioContext"
 
 function Filmes() {
 
     const [filmes, setFilmes] = useState([])
     const navigate = useNavigate()
-    const usuario = useContext(UsuarioContext)
 
     // useEffect( função, array de dependências )
     // useEffect( ()=>{}, [] )
@@ -31,7 +29,6 @@ function Filmes() {
 
     return (
         <>
-            <h2>Bem vindo, {usuario}!</h2>
             <h1>Página de Filmes</h1>
             <StyledListaFilmes>
                 {filmes.map((filme) => {
@@ -39,7 +36,7 @@ function Filmes() {
                         <Card
                             key={filme.id}
                             id={filme.id}
-                            titulo={filme.title}
+                            title={filme.title}
                             poster={filme.poster_path}
                         />
                     )
