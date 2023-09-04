@@ -36,7 +36,7 @@ function Filmes() {
                         <Card
                             key={filme.id}
                             id={filme.id}
-                            title={filme.title}
+                            titulo={filme.title}
                             poster={filme.poster_path}
                         />
                     )

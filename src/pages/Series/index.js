@@ -33,7 +33,7 @@ function Series() {
                         <Card
                             key={serie.id}
                             id={serie.id}
-                            title={serie.name}
+                            titulo={serie.name}
                             poster={serie.poster_path}
                         />
                     )
