@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { API_KEY, URL_FILMES } from "../../apiConfig";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FilmeCard from "../../components/FilmeCard/FilmeCard";
 import "./Filmes.css"
+import { UserContext } from "../../UserContext";
 
 function Filmes() {
   const [filmes, setFilmes] = useState([]);
   const navigate = useNavigate();
+  const user = useContext(UserContext)
 
   // useEffect( função, array de dependências )
   // useEffect( ()=>{}, [] )
@@ -25,7 +27,7 @@ function Filmes() {
 
   return (
     <>
-      <h1>Página de Filmes</h1>
+      <h1>Página de Filmes de {user}</h1>
       <ul className="lista-filmes">
         {filmes.map((filme) => {
           return (
