@@ -1,14 +1,10 @@
-import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function Sobre() {
     return(
         <>
             <h1>Página Sobre</h1>
-            <Link to="/">Home</Link>
-            <br/>
-            <Link to="/portfolio">Portfolio</Link>
-            <br/>
-            <Link to="/contato">Contato</Link>
+            <Navbar/>
         </>  
     )
 }
