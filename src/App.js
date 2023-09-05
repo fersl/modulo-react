@@ -5,16 +5,21 @@ import Portfolio from "./pages/Portfolio";
 import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import NoPage from "./pages/NoPage";
+import Layout from "./pages/Layout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={ <Home/> }></Route>
-        <Route path="sobre" element={ <Sobre/> } />
-        <Route path="portfolio" element={ <Portfolio/> } />
-        <Route path="contato" element={ <Contato/> } />
-        <Route path="*" element={ <NoPage/> } />
+        <Route to="/" element={<Layout />}>
+
+          <Route path="/" element={<Home />}></Route>
+          <Route path="sobre" element={<Sobre />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="contato" element={<Contato />} />
+          <Route path="*" element={<NoPage />} />
+
+        </Route>
       </Routes>
     </BrowserRouter>
   );
